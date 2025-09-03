@@ -29,13 +29,16 @@ export function FramePreview({ frameData }: FramePreviewProps) {
     >
       <div className="bg-dark-surface border border-dark-border rounded-lg overflow-hidden">
         {/* Frame Image */}
-        <div className="aspect-video bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+        <div className="aspect-video bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center relative">
           {frameData.imageUrl ? (
-            <img
-              src={frameData.imageUrl}
-              alt="Generated frame"
-              className="w-full h-full object-cover"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={frameData.imageUrl}
+                alt="Generated frame"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           ) : (
             <div className="text-center">
               <div className="w-12 h-12 bg-accent/30 rounded-lg flex items-center justify-center mx-auto mb-2">
